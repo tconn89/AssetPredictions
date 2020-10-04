@@ -1,0 +1,23 @@
+{
+  "name": "first_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.766.0",
+    "axios": "^0.20.0",
+    "express": "^4.17.1",
+    "serverless-dynamodb-local": "0.2.10",
+    "serverless-http": "^2.6.0",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "serverless-offline": "^6.8.0"
+  }
+}

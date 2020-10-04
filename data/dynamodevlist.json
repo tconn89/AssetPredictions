@@ -1,0 +1,4 @@
+{
+  "path": "/api/v1/assets",
+  "httpMethod": "GET"
+}

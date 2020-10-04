@@ -1,0 +1,6 @@
+{
+  "path": "/api/v1/assets/create",
+  "httpMethod": "POST",
+  "body": "{\"value\": 10000,\"asset\":\"BITCOIN\"}",
+  "headers": { "content-type": "application/json" }
+}
