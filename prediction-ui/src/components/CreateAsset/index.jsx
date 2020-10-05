@@ -28,7 +28,7 @@ export const CreateAsset = props => {
 
 function Response({ item }) {
   if (item) {
-    const result = { diff: Math.abs(item.value - item.price).toFixed('0') };
+    const result = { diff: Math.abs(item.value - item.price).toFixed(0) };
     result.verb = item.value > item.price ? 'rise' : 'fall';
     return (
       <div className="result">

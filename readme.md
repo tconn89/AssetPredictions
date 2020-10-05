@@ -8,3 +8,22 @@ Invoke Lambda on local machine (and get list of predictions)
 
 Invoke Lambda on local machine (and create a new prediction)
 `serverless invoke local --function app --path data/dynamodevcreate.json`
+
+
+### Start the UI
+
+```
+# Navigate to the UI directory
+cd prediction-ui
+
+# install dependencies
+yarn install
+
+# start the server
+yarn start
+
+```
+
+### Progress Screenshot
+
+![]('./prediction-ui/public/MVP1.png')
