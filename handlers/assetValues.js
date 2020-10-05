@@ -1,4 +1,3 @@
-const { AlexaForBusiness } = require('aws-sdk');
 const uuid = require('uuid');
 const dynamoDb = require('../db');
 const axios = require('axios')
@@ -44,9 +43,8 @@ const create = async (req, res) => {
 
 const read = (req, res) => {
   if (!req.params.id)
-  return res.status(400).send({ error: 'Missing ID'});
+    return res.status(400).send({ error: 'Missing ID'});
 
-  console.log(req.params.id);
   const params = {
     TableName: 'AssetValue',
     Key: {
