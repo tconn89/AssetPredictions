@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { usePredictionManager } from './hooks';
 import Loader from 'react-loader-spinner'
+import usePredictionManager from 'hooks/usePredictionManager';
 
 import './CreateAsset.scss'
 
@@ -17,7 +17,7 @@ export const CreateAsset = props => {
     <>
       <h2>What is your prediction for the price of ฿</h2>
       <div className="main">
-        <input onChange={e => predictionSet(e.target.value)}/>
+        <input placeholder="Enter a prediction" onChange={e => predictionSet(e.target.value)}/>
         <button onClick={onSubmit} >Submit</button>
         { state.status === 'fetching' &&
           <div className="result">
