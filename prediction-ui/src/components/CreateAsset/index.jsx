@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { usePredictionManager } from './hooks';
+import Loader from 'react-loader-spinner'
 
 import './CreateAsset.scss'
 
@@ -18,6 +19,15 @@ export const CreateAsset = props => {
       <div className="main">
         <input onChange={e => predictionSet(e.target.value)}/>
         <button onClick={onSubmit} >Submit</button>
+        { state.status === 'fetching' &&
+          <div className="result">
+            <Loader
+              type="ThreeDots"
+              height={80}
+              width={80}
+            /> 
+          </div>
+        }
         { state.status === 'success' &&
           <Response item={state.response?.item} />
         }
