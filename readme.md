@@ -26,4 +26,4 @@ yarn start
 
 ### Progress Screenshot
 
-![]('./prediction-ui/public/MVP1.png')
+![UI MVP](/prediction-ui/public/MVP1.png?raw=true) 
