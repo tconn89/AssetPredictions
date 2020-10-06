@@ -1,6 +1,6 @@
 const uuid = require('uuid');
 const dynamoDb = require('../db');
-const axios = require('axios')
+const { getBitcoinPrice } = require('../plugins/bitcoin')
 
 const create = async (req, res) => {
   const { type, asset, value } = req.body;
@@ -92,18 +92,6 @@ const list = (req, res) => {
 
     res.send(response)
   });
-}
-
-async function getBitcoinPrice() {
-  const response = await axios.get('https://api.kraken.com/0/public/Trades?pair=XXBTZUSD')
-  if (response && response.data) {
-    console.log(response.data);
-    const { length } = response.data.result.XXBTZUSD
-    const price = parseFloat(response.data.result.XXBTZUSD[length - 1][0])
-    console.log(price);
-    return price;
-  }
-  return null;
 }
 
 module.exports = { create, read, list };

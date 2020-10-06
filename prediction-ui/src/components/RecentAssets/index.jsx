@@ -9,6 +9,7 @@ const [state, { getListRequest}] = usePredictionManager();
 
 useEffect(() => {
   getListRequest()
+  //eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
   if (!state.response)
