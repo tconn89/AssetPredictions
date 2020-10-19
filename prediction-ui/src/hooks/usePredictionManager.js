@@ -25,11 +25,10 @@ export default function usePredictionManager() {
     const response = await execFetch('/assets/create', body, 'POST');
     dispatch({ type: 'success', response });
   }, [])
+
   const getListRequest = useCallback(async () => {
     dispatch({ type: 'fetching' });
-    console.log(execFetch)
     const response = await execFetch('/assets', null, 'GET');
-
     dispatch({ type: 'success', response });
   }, [])
 

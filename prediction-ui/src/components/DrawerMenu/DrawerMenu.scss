@@ -1,0 +1,200 @@
+@import 'scss/_sass-global.scss';
+
+
+.side-menu {
+    left:0;
+    position:fixed;
+    top:0px;
+    z-index:9999;
+
+    @include bp-md-up {
+        border-right:1px solid #eee;
+        position:relative;
+        z-index:1;
+    }
+    @include bp-sm {
+        //top:$header-offset;
+    }
+    @include bp-md {
+        top:$header-offset;
+    }
+
+    & > .overlay {
+        background-color: #00000057;
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index:9999;
+
+        @include bp-md-up {
+            z-index:8999;
+        }
+    }
+    .menu-panel {
+        transition: left 0.5s;
+    }
+    &.hidden {
+        @include bp-md-down {
+        display: none;
+        }
+        & > .overlay {
+            display: none;
+        }
+
+        & > .menu-panel {
+            left: $sidebar;
+            background: transparent;
+
+            @include bp-md-up {
+                left: 0;
+            }
+
+        }
+    }
+
+    &.mode-md {
+
+        .menu-panel {
+            position:sticky;
+        }
+    }
+    &.mode-lg {
+
+        .menu-panel {
+            position:sticky;
+        }
+    }
+
+    & > .menu-panel {
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        justify-content: space-between;
+        padding: 25px;
+        position: absolute;
+        text-align: left;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease-in-out;
+        transition: left 0.3s ease-in-out;
+        width: $sidebar;
+        z-index:9999;
+
+        @include bp-md {
+            max-width: $mini-sidebar;
+            top: $header-offset;
+        }
+
+        @include bp-lg-up {
+            background: $bg;
+            box-shadow: none;
+            border: none;
+            padding: 72px 15px 20px 0;
+        }
+
+        .avatar-container {
+            align-items:center;
+            display:flex;
+            margin-bottom:20px;
+
+            @include bp-md {
+                flex-direction:column;
+            }
+
+            &.avatar-button {
+                align-items:center;
+                border-radius:$bRadius;
+                cursor:pointer;
+                display:flex;
+
+                @include bp-md {
+                    margin: 0 auto 20px;
+                    width: 48px;
+                }
+
+            }
+        }
+
+        .menu-link-container {
+            justify-content: space-between;
+
+            .menu-links {
+                display: flex;
+                flex-direction: column;
+                
+                @include bp-lg-up {
+                margin-left: 0;
+                }
+                @include bp-md {
+                    align-items:center;
+                    font-size:28px;
+                }
+
+                a {
+                    color:$cText;
+                    margin:10px 0;
+                }
+
+                .link {
+                    align-items:center;
+                    display:flex;
+                    padding:10px 0px 10px 0;
+
+                    @include bp-md {
+                        flex-direction:column;
+                        padding:5px 0;
+                        text-align:center;
+                        width:100%;
+                    }
+
+                    svg {
+                        margin-right:15px;
+
+                        @include bp-md {
+                            margin:0 auto;
+                        }
+                    }
+
+                    .label {
+                        display:flex;
+                        font-weight:600;
+
+                        @include bp-md {
+                            color:$cTextSubdued;
+                            display:flex;
+                            font-size:11px;
+                            line-height:14px;
+                            margin-top:5px;
+                        }
+                        @include bp-lg-up {
+                            display:flex;
+                        }
+                    }
+
+                    &.support {
+                        border:1px solid $cAccent;
+                        border-radius:$bRadius;
+                    }
+                }
+            }
+        }
+        .logout {
+            @include bp-md {
+                font-size:28px;
+                text-align:center;
+            }
+        }
+    }
+}
+.bottom-buttons {
+    display:flex;
+    justify-content:space-between;
+
+    @include bp-md-up {
+        margin-top:50px;
+    }
+}

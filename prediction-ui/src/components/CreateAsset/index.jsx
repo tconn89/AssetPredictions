@@ -17,7 +17,7 @@ export const CreateAsset = props => {
     <>
       <h2>What is your prediction for the price of ฿</h2>
       <div className="main">
-        <input placeholder="Enter a prediction" onChange={e => predictionSet(e.target.value)}/>
+        <input placeholder="Enter a prediction" onChange={e => { predictionSet(e.target.value.replace(/\D/g, ''))}}/>
         <button onClick={onSubmit} >Submit</button>
         { state.status === 'fetching' &&
           <div className="result">

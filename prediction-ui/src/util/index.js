@@ -29,3 +29,13 @@ export async function execFetch(url, body, method) {
       throw err;
   }
 };
+
+export function asyncDispatch(dispatch) {
+    return function(action) {
+        if (typeof action === 'function') {
+            action(dispatch);
+        } else {
+            dispatch(action);
+        }
+    }
+}
