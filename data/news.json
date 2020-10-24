@@ -1,0 +1,5 @@
+{
+  "path": "/news/TSLA",
+  "httpMethod": "GET",
+  "pathParameters": { "company": "TSLA"}
+}

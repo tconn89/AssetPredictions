@@ -1,5 +1,6 @@
 
-export async function execFetch(url, body, method) {
+export async function execFetch(url, body, method = 'GET') {
+  const baseURL = url.startsWith('/finn') ? '/dev' + url : '/dev/api/v1' + url;
   try {
     let params = {
         method,
@@ -11,7 +12,7 @@ export async function execFetch(url, body, method) {
         body: body ? JSON.stringify(body) : null
     };
 
-    const result = await fetch('/dev/api/v1' + url, params);
+    const result = await fetch(baseURL, params);
     const payload = await result.json();
     if (!result.ok) {
         throw payload;

@@ -15,9 +15,40 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource: 'arn:aws:dynamodb:us-east-1:*:*'
+
+  # usagePlan: # Optional usage plan configuration
+  #   quota:
+  #     limit: 5000
+  #     offset: 2
+  #     period: MONTH
+  #   throttle:
+  #     burstLimit: 200
+  #     rateLimit: 100
 plugins:
   - serverless-offline
+package:
+  exclude:
+    - .git/**
+    - prediction-ui/**
 functions:
+  # finn:
+  #   handler: services/finnhub.handler
+  #   events:
+  #     - http: 
+  #         path: finn
+  #         method: ANY
+  #         cors: true
+  finn:
+    handler: services/finnhub.handler
+    events: 
+      - http: 
+          path: /finn
+          method: ANY
+          cors: true
+      - http: 
+          path: /finn/{proxy+}
+          method: ANY
+          cors: true
   app:
     handler: app.handler
     events: 
@@ -29,14 +60,6 @@ functions:
           path: /{proxy+}
           method: ANY
           cors: true
-  getback:
-    handler: app.handler
-    events:
-      - http: POST /api/v1/getback
-  info:
-    handler: app.handler
-    events:
-      - http: GET /api/info
 resources:
   Resources:
 

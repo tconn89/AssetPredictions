@@ -9,6 +9,9 @@ Invoke Lambda on local machine (and get list of predictions)
 Invoke Lambda on local machine (and create a new prediction)
 `serverless invoke local --function app --path data/dynamodevcreate.json`
 
+**Deployment**  
+
+
 
 ### Start the UI
 

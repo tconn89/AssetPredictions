@@ -118,6 +118,19 @@
 
             }
         }
+        .Spacer { height: 10px; }
+        .filters {
+            width: 240px;
+            ::-webkit-scrollbar {
+                display: none;
+            }
+            div {
+                overflow-y: scroll;
+                overflow-x: visible;
+                max-height: 60vh;
+                max-width: 240px;
+            }
+        }
 
         .menu-link-container {
             justify-content: space-between;

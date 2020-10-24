@@ -3,37 +3,43 @@ import logo from './logo.svg';
 import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 import { CreateAsset } from './components/CreateAsset'
 import { RecentAssets } from './components/RecentAssets';
+import ChartExample from './components/Charts';
 import { AppProvider } from './stores/GlobalAppStore'
 import DrawerMenu from './components/DrawerMenu';
+import News from './components/News';
 import useWindowSize from './hooks/useWindowSize';
 // import { HamburgerMenu } from 'react-icons/fa'
 
-import './App.css';
+import './App.scss';
 
 function App() {
+  const dimensions = useWindowSize();
   return (
     <Router>
       <AppProvider >
-        <Switch>
-          <Route path="/list" component={RecentAssets} />
-          <Route path="/" component={Main} />
-        </Switch>
+        <div className="d-flex">
+          <DrawerMenu dimensions={dimensions} />
+          <div className="App">
+            <Switch>
+              <Route path="/chart" component={ChartExample} />
+              <Route path="/list" component={RecentAssets} />
+              <Route path="/news" component={News} />
+              <Route path="/" component={Main} />
+            </Switch>
+          </div>
+        </div>
       </AppProvider>
     </Router>
   )
 }
 
 function Main() {
-  const dimensions = useWindowSize();
   return (
-    <div className="d-flex">
-      <DrawerMenu dimensions={dimensions} />
-      <div className="App">
+      <div className="">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <CreateAsset />
-      </div>
     </div>
   );
 }

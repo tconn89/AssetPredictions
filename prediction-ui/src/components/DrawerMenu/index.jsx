@@ -7,24 +7,28 @@ import classnames from 'classnames'
 import './DrawerMenu.scss';
 import { BsViewStacked, BsInfoSquare } from 'react-icons/bs';
 import { MdHelpOutline } from "react-icons/md";
-
+import Filters from '../Filters';
 
 function AnonymousMenu(props) {
     return (
         <div className="menu-link-container">
             <div className="menu-links">
-                <Link to="/" className="link">
+                <Link to="/list" className="link">
                     <BsViewStacked />
-                    <div className="label">Feed</div>
+                    <div className="label">List</div>
                 </Link>
-                <Link to="/about" className="link">
+                <Link to="/" className="link">
                     <BsInfoSquare />
-                    <div className="label">About</div>
+                    <div className="label">Predict</div>
                 </Link>
                 <Link to="/about/help" className="link">
                     <MdHelpOutline />
                     <div className="label">Help</div>
                 </Link>
+            </div>
+            <div className="Spacer" />
+            <div className="filters">
+                <Filters />
             </div>
         </div>
     );

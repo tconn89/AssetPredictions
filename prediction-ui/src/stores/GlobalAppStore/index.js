@@ -3,6 +3,7 @@ import { asyncDispatch } from '../../util';
 
 // reducer to manage sidebar state globally
 import sidebarReducer from './sidebar/reducer';
+import newsReducer from './news/reducer';
 
 const AppStateContext = createContext();
 const AppDispatchContext = createContext();
@@ -11,6 +12,9 @@ const initialState = {
     sidebar: {
         show: false
     },
+    news : {
+        loading: false,
+    }
 };
 
 
@@ -18,6 +22,7 @@ function combinedReducer(currentState = initialState, action) {
     // we map the reducer call to each of the sub reducers
     return {
         sidebar: sidebarReducer(currentState.sidebar, action),
+        news: newsReducer(currentState.sidebar, action),
     };
 }
 
