@@ -19,14 +19,14 @@ export const CreateAsset = props => {
       <div className="main">
         <input placeholder="Enter a prediction" onChange={e => { predictionSet(e.target.value.replace(/\D/g, ''))}}/>
         <button onClick={onSubmit} >Submit</button>
-        { state.status === 'fetching' &&
-          <div className="result">
+        { state.status === 'fetching' ?
+          (<div className="result">
             <Loader
               type="ThreeDots"
               height={80}
               width={80}
             /> 
-          </div>
+          </div>) : null
         }
         { state.status === 'success' &&
           <Response item={state.response?.item} />

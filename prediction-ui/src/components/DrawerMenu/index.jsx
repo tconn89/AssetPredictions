@@ -55,14 +55,12 @@ function SideBarMenu (props) {
     , [history, sidebar])
 
     return (
-        // <>{ dimensions.width >= 576 ? 'null' : "null" }
-            <div id="side-menu" className={className}>
-                <div className="overlay" onClick={sidebar.close}></div>
-                <div className="menu-panel">
-                    <AnonymousMenu />
-                </div>
+        <div id="side-menu" className={className}>
+            <div className="overlay" onClick={sidebar.close}></div>
+            <div className="menu-panel">
+                <AnonymousMenu />
             </div>
-        // </>
+        </div>
     );
 }
 

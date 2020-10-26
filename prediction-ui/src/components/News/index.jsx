@@ -30,11 +30,11 @@ export default function News() {
       <div className="d-flex container search">
         <input onKeyUp={onEnter} type="text" placeholder="company name" onChange={e => companySet(e.target.value)} />
         <button onClick={handleSubmit}>Submit</button>
-        { news.loading && (
+        { news.loading ? (
             <div className="loader">
               <Loader type="ThreeDots" height={40} width={40} /> 
             </div>
-          )
+          ) : null
         }
       </div>
       { list.map(data => (
