@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useGlobalNews from 'hooks/useGlobalNews';
+import { getDomain } from 'util/parse';
 import './Filters.scss'
 
 export default function Filter() {
@@ -26,15 +27,9 @@ export default function Filter() {
       { filters.map(filter => (
         <div key={filter.domain} className="d-flex filter">
           <div>{filter.domain}</div>
-          <div>({filter.count})</div>
+          <div>&nbsp;({filter.count})</div>
         </div>
       ))}
     </div>
   )
-}
-
-function getDomain(url) {
-  const pIndex = url.indexOf('.');
-  const sIndex = url.substring(pIndex).indexOf('/');
-  return url.substring(8, pIndex + sIndex);
 }

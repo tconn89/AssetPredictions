@@ -9,6 +9,13 @@
   color: grey;
   font-size: 12px;
 }
+.container.search {
+  height: 40px;
+}
 .container {
   margin: 10px 0;
+
+  .loader {
+    margin: 0 10px;
+  }
 }
