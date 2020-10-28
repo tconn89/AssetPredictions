@@ -1,13 +1,9 @@
-const finnhub = require('finnhub');
- 
-const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-api_key.apiKey = "bu7jhvv48v6uhfp608r0" // Replace this
-const finnhubClient = new finnhub.DefaultApi()
+const finnhubClient = require('../plugins/finnhub');
  
 const express = require('express');
 
 const router = express.Router();
-// const moment = require('moment');
+const moment = require('moment');
 
 
 console.log('Initializing finnhub routes');
@@ -15,10 +11,10 @@ router.get('/news/:company', (req, res) => {
   const company = req.params.company;
   if (!company) return res.status(400).send({ error: 'No company param provided'})
 
-  // const end = moment().format('YYYY-MM-DD');
-  // const start = moment().subtract(5, 'months').format('YYYY-MM-DD')
+  const end = moment().format('YYYY-MM-DD');
+  const start = moment().subtract(5, 'months').format('YYYY-MM-DD')
   
-  finnhubClient.companyNews(company, "2020-05-01", "2020-10-20", (error, data, response) => {
+  finnhubClient.companyNews(company, start, end, (error, data, response) => {
     if (error) {
         console.error(error);
         return res.send({ error })

@@ -49,6 +49,8 @@ functions:
           path: /finn/{proxy+}
           method: ANY
           cors: true
+    environment:
+      finnhubApiKey: ${file(./config/finnhub.yml):finnhub.finnhubApiKey}
   app:
     handler: app.handler
     events: 

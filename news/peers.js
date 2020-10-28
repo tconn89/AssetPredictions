@@ -1,7 +1,7 @@
 const client = require('.');
  
 
-client.companyPeers("aapl", (error, data, response) => {
+client.companyPeers("tsla", (error, data, response) => {
     console.log(data)
 });
 
